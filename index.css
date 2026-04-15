@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --primary: #5d6bb2;
+    --secondary: #adafd7;
+    --accent: #d69728;
+    --bg-dark: #020310; /* Ultra deep blue-black */
+    --text-main: #ffffff;
+    --text-dim: rgba(173, 175, 215, 0.4);
+    --grid-color: rgba(173, 175, 215, 0.05); /* Much more subtle grid */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Fine Tech Mesh Gradient + Grid */
+.mesh-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Move further back */
+    background: var(--bg-dark);
+    /* Restore Grid here so it's visible with the gradient */
+    background-image: 
+        linear-gradient(var(--grid-color) 0.5px, transparent 0.5px),
+        linear-gradient(90deg, var(--grid-color) 0.5px, transparent 0.5px);
+    background-size: 60px 60px;
+}
+
+.mesh-gradient::before {
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 140%;
+    top: -20%;
+    left: -20%;
+    background: 
+        radial-gradient(circle at 10% 20%, #ff00ff22 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, var(--primary) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, var(--secondary) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, #ff00ff11 0%, transparent 30%);
+    filter: blur(100px);
+    opacity: 0.8; /* Slightly more opaque for cheerfulness */
+    animation: smooth-mesh 15s ease-in-out infinite alternate;
+}
+
+@keyframes smooth-mesh {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(50px, -50px) rotate(5deg); }
+}
+
+/* Particles Canvas */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Hero Section */
+.hero-3d {
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    position: relative;
+}
+
+.hero-text {
+    flex: 0 0 350px;
+    text-align: center;
+    z-index: 10;
+}
+
+.hero-logo {
+    height: 80px;
+    margin-bottom: 1.5rem;
+    filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(255,255,255,0.4));
+    opacity: 0.95;
+}
+
+.tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem; /* Slightly larger */
+    color: #fff; /* Switch to white for maximum contrast */
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    text-shadow: 0 0 10px rgba(93, 107, 178, 0.5);
+}
+
+.presentation-text {
+    font-size: 1rem; /* Slightly larger */
+    color: #fff; /* Pure white for readability */
+    line-height: 1.8;
+    max-width: 480px; /* Better line breaks */
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    opacity: 0.95;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.presentation-text span.data-accent {
+    color: var(--accent);
+    font-weight: 600;
+    opacity: 1;
+}
+
+.meta-auth {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--secondary);
+    opacity: 0.8;
+    letter-spacing: 0.2rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
+
+.model-link {
+    flex: 1;
+    text-decoration: none;
+    display: block;
+    cursor: none;
+}
+
+/* 3D Model Styling */
+.model-container {
+    flex: 1;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    animation: floating-vertical 6s ease-in-out infinite;
+}
+
+.model-container.right {
+    transform: scale(0.5);
+    animation-delay: -3s;
+}
+
+@keyframes floating-vertical {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+.model-label {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.label-title {
+    font-weight: 800;
+    letter-spacing: 0.3rem;
+    color: var(--secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.label-desc {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    opacity: 0.7;
+    text-transform: lowercase;
+}
+
+.model-container:hover .label-title {
+    color: var(--primary);
+    letter-shadow: 0 0 10px var(--primary);
+}
+
+.model-container:hover .label-desc {
+    opacity: 1;
+    color: var(--accent);
+}
+
+model-viewer {
+    width: 100%;
+    height: 100%;
+    --poster-color: transparent;
+    transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 10px rgba(93, 107, 178, 0.3));
+    outline: none;
+    border: none;
+}
+
+/* Hide default loading progress bar */
+model-viewer::part(default-progress-bar) {
+    display: none;
+}
+
+.model-container:hover model-viewer {
+    filter: drop-shadow(0 0 60px var(--secondary)) drop-shadow(0 0 20px rgba(173, 175, 215, 0.5)) brightness(1.3);
+}
+
+/* Main CTA Button */
+.cta-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 0;
+}
+
+.primary-cta, .secondary-cta {
+    text-decoration: none;
+    background: transparent;
+    padding: 1.25rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.2rem;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+.primary-cta {
+    color: #fff;
+    background: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.secondary-cta {
+    color: var(--secondary);
+    border: 1px solid rgba(173, 175, 215, 0.3);
+}
+
+.primary-cta:hover, .secondary-cta:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px) scale(1.02);
+}
+
+@media (max-width: 600px) {
+    .cta-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .primary-cta, .secondary-cta {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+
+/* Cursor Follower */
+#cursor-follower {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(93, 107, 178, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+}
+
+#cursor-dot {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 12px var(--accent);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+@media (max-width: 1024px) {
+    .container { padding: 0 2rem; }
+    
+    .hero-3d { 
+        flex-direction: column; 
+        height: auto; 
+        padding-top: 2rem;
+        gap: 4rem;
+    }
+
+    .hero-text { 
+        order: 1; /* Info First */
+        flex: none;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .model-link {
+        order: 2; /* Dog Second (implicitly 2) */
+        width: 100%;
+        height: auto;
+    }
+
+    .model-link:last-of-type {
+        order: 3; /* Cat Third */
+    }
+
+    .model-container { 
+        height: 350px; 
+        width: 100%; 
+    }
+
+    .hero-logo {
+        height: 60px;
+    }
+
+    .presentation-text {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+}

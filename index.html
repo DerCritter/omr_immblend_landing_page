@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImmBlend | OMR Premium Experience</title>
+    <meta name="description" content="Premium AR/VR/KI solutions by ImmBlend at OMR 2024.">
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <!-- Background Layers -->
+    <canvas id="particles-canvas"></canvas>
+    <div id="cursor-follower"></div>
+    <div id="cursor-dot"></div>
+    <div class="mesh-gradient"></div>
+
+    <main>
+        <section class="hero-3d container">
+            <!-- Left Model (Dog -> IBKAI) -->
+            <a href="https://kommunikationstrainer.ai" target="_blank" class="model-link">
+                <div class="model-container left">
+                    <model-viewer 
+                        src="public/vr_hund.glb" 
+                        alt="VR Wau" 
+                        auto-rotate 
+                        auto-rotate-delay="0"
+                        loading="eager"
+                        shadow-intensity="1" 
+                        camera-controls 
+                        disable-zoom
+                        disable-tap
+                        interaction-prompt="none"
+                        rotation-per-second="30deg">
+                    </model-viewer>
+                    <div class="model-label">
+                        <span class="label-title">VR-WAU</span>
+                        <span class="label-desc">um Virtual Reality zu erleben</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Central Hero Text -->
+            <div class="hero-text">
+                <img src="public/logo_immblend.svg" alt="ImmBlend Logo" class="hero-logo">
+                <p class="tagline">IMMERSIVE TECHNOLOGIES</p>
+                <div class="presentation-text">
+                    Herzlich willkommen auf der OMR 2024! <br>
+                    Wir sind ImmBlend – dein Partner für innovative Lösungen in den Bereichen <span class="data-accent">VR | AR | KI | METAVERSE</span>. Wir setzen Immersion in den Fokus, um emotionale und nachhaltige digitale Erlebnisse zu schaffen.
+                </div>
+                <div class="meta-auth">
+                    [ OMR_MESSE_2024 ] [ AUTH: GRANTED ]
+                </div>
+            </div>
+
+            <!-- Right Model (Cat -> AR CUBES) -->
+            <a href="http://ar-cube.de/" target="_blank" class="model-link">
+                <div class="model-container right" style="animation-delay: -3s;">
+                    <model-viewer 
+                        src="public/ar_katze.glb" 
+                        alt="AR Miau" 
+                        auto-rotate 
+                        auto-rotate-delay="0"
+                        loading="eager"
+                        shadow-intensity="1" 
+                        camera-controls 
+                        disable-zoom
+                        disable-tap
+                        interaction-prompt="none"
+                        rotation-per-second="30deg">
+                    </model-viewer>
+                    <div class="model-label">
+                        <span class="label-title">AR-MIAU</span>
+                        <span class="label-desc">um Augmented Reality zu erleben</span>
+                    </div>
+                </div>
+            </a>
+        </section>
+
+        <!-- Main Call to Action -->
+        <section class="links-simple container">
+            <div class="cta-container">
+                <a href="https://immblend.de" target="_blank" class="primary-cta">BESUCH UNS</a>
+                <a href="mailto:info@immblend.de" class="secondary-cta">JETZT KONTAKTIEREN</a>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
