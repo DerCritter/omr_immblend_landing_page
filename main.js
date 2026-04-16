@@ -80,14 +80,25 @@ function updateCrypticData() {
 }
 setInterval(updateCrypticData, 2000);
 
-// 3D Model Interaction
-document.querySelectorAll('.model-container').forEach(container => {
-    const viewer = container.querySelector('model-viewer');
+// 3D Model Interaction & Navigation Confirmation
+document.querySelectorAll('.model-link').forEach(link => {
+    const container = link.querySelector('.model-container');
+    const viewer = link.querySelector('model-viewer');
+    
+    // Rotation speed change on hover
     container.addEventListener('mouseenter', () => {
         viewer.setAttribute('rotation-per-second', '90deg');
     });
     container.addEventListener('mouseleave', () => {
         viewer.setAttribute('rotation-per-second', '30deg');
+    });
+
+    // Navigation confirmation
+    link.addEventListener('click', (e) => {
+        const confirmMsg = "Möchten Sie die Seite verlassen, um dieses Projekt zu besuchen?";
+        if (!confirm(confirmMsg)) {
+            e.preventDefault();
+        }
     });
 });
 
