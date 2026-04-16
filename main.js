@@ -102,3 +102,29 @@ document.querySelectorAll('.model-link').forEach(link => {
     });
 });
 
+// Form Handling
+const contactForm = document.getElementById('contact-form');
+const feedback = document.getElementById('form-feedback');
+const submitBtn = document.querySelector('.submit-btn');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'SENDING...';
+        
+        // Mock submission
+        setTimeout(() => {
+            contactForm.reset();
+            submitBtn.style.display = 'none';
+            feedback.style.display = 'block';
+            setTimeout(() => {
+                submitBtn.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'SEND MESSAGE';
+                feedback.style.display = 'none';
+            }, 3000);
+        }, 1500);
+    });
+}
+

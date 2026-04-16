@@ -319,6 +319,103 @@ model-viewer::part(default-progress-bar) {
     box-shadow: 0 0 12px var(--accent);
 }
 
+/* Contact Section */
+.contact-card {
+    max-width: 800px;
+    margin: 4rem auto;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    padding: 3.5rem;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-info h2 {
+    font-size: 0.8rem;
+    letter-spacing: 0.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.direct-email a {
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    transition: all 0.3s ease;
+}
+
+.direct-email a:hover {
+    color: var(--secondary);
+    text-shadow: 0 0 20px rgba(173, 175, 215, 0.4);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(173, 175, 215, 0.3);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.25rem;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    cursor: default;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.submit-btn:hover {
+    background: var(--secondary);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(173, 175, 215, 0.2);
+}
+
+.form-status {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .direct-email a { font-size: 1.2rem; }
+    .contact-card { padding: 2rem; margin: 2rem 1rem; }
+}
+
 .container {
     max-width: 1400px;
     margin: 0 auto;
