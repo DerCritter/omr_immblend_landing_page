@@ -80,10 +80,9 @@ function updateCrypticData() {
 }
 setInterval(updateCrypticData, 2000);
 
-// 3D Model Interaction & Navigation Confirmation
-document.querySelectorAll('.model-link').forEach(link => {
-    const container = link.querySelector('.model-container');
-    const viewer = link.querySelector('model-viewer');
+// 3D Model Interaction
+document.querySelectorAll('.model-container').forEach(container => {
+    const viewer = container.querySelector('model-viewer');
     
     // Rotation speed change on hover
     container.addEventListener('mouseenter', () => {
@@ -93,9 +92,16 @@ document.querySelectorAll('.model-link').forEach(link => {
         viewer.setAttribute('rotation-per-second', '30deg');
     });
 
-    // Navigation confirmation
-    link.addEventListener('click', (e) => {
-        const confirmMsg = "Möchten Sie die Seite verlassen, um dieses Projekt zu besuchen?";
+    // Neutral click alert (as requested: show window but don't navigate)
+    container.addEventListener('click', () => {
+        alert("Sie sind im Begriff, diese Website zu verlassen. (Links werden in Kürze hinzugefügt)");
+    });
+});
+
+// Project Buttons Navigation Confirmation
+document.querySelectorAll('.model-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const confirmMsg = "Sie sind im Begriff, diese Website zu verlassen, um das Projekt zu besuchen. Fortfahren?";
         if (!confirm(confirmMsg)) {
             e.preventDefault();
         }
