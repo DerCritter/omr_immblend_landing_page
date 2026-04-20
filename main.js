@@ -98,15 +98,8 @@ document.querySelectorAll('.model-container').forEach(container => {
     });
 });
 
-// Project Buttons Navigation Confirmation
-document.querySelectorAll('.model-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        const confirmMsg = "Sie sind im Begriff, diese Website zu verlassen, um das Projekt zu besuchen. Fortfahren?";
-        if (!confirm(confirmMsg)) {
-            e.preventDefault();
-        }
-    });
-});
+// Project Buttons Navigation (direct access)
+// No JS confirmation required for buttons as per user request.
 
 // Form Handling
 const contactForm = document.getElementById('contact-form');
