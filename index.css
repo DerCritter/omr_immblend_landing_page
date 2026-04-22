@@ -182,12 +182,18 @@ body {
 
 .model-container.right {
     transform: scale(0.4);
+    animation: floating-vertical-scaled 6s ease-in-out infinite;
     animation-delay: -3s;
 }
 
 @keyframes floating-vertical {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-30px); }
+}
+
+@keyframes floating-vertical-scaled {
+    0%, 100% { transform: scale(0.4) translateY(0); }
+    50% { transform: scale(0.4) translateY(-30px); }
 }
 
 .model-label {
