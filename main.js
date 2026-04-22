@@ -110,7 +110,7 @@ if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         submitBtn.disabled = true;
-        submitBtn.innerText = 'SENDING...';
+        submitBtn.innerText = 'WIRD GESENDET...';
         
         // Mock submission
         setTimeout(() => {
@@ -120,7 +120,7 @@ if (contactForm) {
             setTimeout(() => {
                 submitBtn.style.display = 'block';
                 submitBtn.disabled = false;
-                submitBtn.innerText = 'SEND MESSAGE';
+                submitBtn.innerText = 'NACHRICHT SENDEN';
                 feedback.style.display = 'none';
             }, 3000);
         }, 1500);
