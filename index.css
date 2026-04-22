@@ -525,7 +525,8 @@ footer {
     .hero-3d { 
         flex-direction: column; 
         height: auto; 
-        padding-top: 8rem; /* Significant increase to avoid model overlap */
+        padding-top: 8rem;
+        padding-bottom: 6rem;
         gap: 6rem;
     }
 
