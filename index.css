@@ -7,7 +7,7 @@
     --bg-dark: #020310;
     --text-main: #ffffff;
     --text-dim: rgba(173, 175, 215, 0.85); /* Increased contrast */
-    --grid-color: rgba(173, 175, 215, 0.15); /* More prominent grid */
+    --grid-color: rgba(173, 175, 215, 0.12); /* Slightly more noticeable grid */
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
 }
@@ -40,8 +40,8 @@ body {
     background: var(--bg-dark);
     /* Restore Grid here so it's visible with the gradient */
     background-image: 
-        linear-gradient(var(--grid-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+        linear-gradient(var(--grid-color) 0.5px, transparent 0.5px),
+        linear-gradient(90deg, var(--grid-color) 0.5px, transparent 0.5px);
     background-size: 60px 60px;
 }
 
