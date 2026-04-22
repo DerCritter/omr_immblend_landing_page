@@ -267,6 +267,32 @@ model-viewer::part(default-progress-bar) {
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
 }
 
+/* Section Divider */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(173, 175, 215, 0.1) 20%, 
+        rgba(173, 175, 215, 0.2) 50%, 
+        rgba(173, 175, 215, 0.1) 80%, 
+        transparent 100%);
+    margin: 2rem auto;
+    position: relative;
+}
+
+.section-divider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 1px;
+    background: var(--secondary);
+    box-shadow: 0 0 15px var(--secondary);
+    opacity: 0.3;
+}
+
 /* Main CTA Button */
 .cta-container {
     display: flex;
