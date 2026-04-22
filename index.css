@@ -181,13 +181,8 @@ body {
 }
 
 .model-container.right {
-    animation: floating-vertical-right 6s ease-in-out infinite;
+    transform: scale(0.4);
     animation-delay: -3s;
-}
-
-@keyframes floating-vertical-right {
-    0%, 100% { transform: scale(0.4) translateY(0); }
-    50% { transform: scale(0.4) translateY(-75px); } /* Adjusted translateY to account for scale */
 }
 
 @keyframes floating-vertical {
